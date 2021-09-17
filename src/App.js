@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { getCurrentDate, getId } from "./helpers";
-import constant, { getRandomName, getRandomColor } from "./random";
+import constant from "./random";
+import CurrentDate from "./components/CurrentDate";
+import UniqueId from "./components/UniqueId";
+import UserInfo from "./components/UserInfo";
 
 require("dayjs/locale/hr");
-
-// MMMM DD YYYY, HH:mm:ss
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <h1>Učimo ReactJS</h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>Moja prva aplikacija</p>
-        <p>Danas je {getCurrentDate()}</p>
+        <CurrentDate />
         <a
           className="App-link"
           href="https://en.wikipedia.org/wiki/React_(JavaScript_library)"
@@ -23,12 +23,8 @@ function App() {
         >
           Wikipedia o ReactJS-u
         </a>
-        <p>
-          Ja sam {getRandomName()} i moja najdraža boja je {getRandomColor()}.
-        </p>
-        <p>
-          Tvoj jedinstveni identifikator je <strong>{getId()}</strong>.
-        </p>
+        <UserInfo />
+        <UniqueId />
         <p>Izabrana konstanta je {constant}.</p>
       </header>
     </div>
