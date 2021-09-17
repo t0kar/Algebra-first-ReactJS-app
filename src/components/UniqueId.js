@@ -3,7 +3,7 @@ import { getId } from "../helpers";
 export default function UniqueId() {
   return (
     <p>
-      Tvoj jedinstveni identifikator je <strong>{getId()}</strong>.
+      Your ID is <strong>{getId()}</strong>.
     </p>
   );
 }
