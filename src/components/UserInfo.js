@@ -1,11 +1,12 @@
-import { getRandomName, getRandomColor } from "../random";
+import { getRandomName, getRandomColor } from '../random';
+import Greet from './Greet';
 
-const userColor = getRandomColor();
 export default function UserInfo() {
+  const userColor = getRandomColor();
   return (
-    <p>
-      I am {getRandomName()} and my favorite color is{" "}
-      <span style={{ color: userColor }}>{userColor}</span>.
-    </p>
+    <Greet greeting='Hello' name={getRandomName()}>
+      My favorite color is <span style={{ color: userColor }}>{userColor}</span>
+      .
+    </Greet>
   );
 }

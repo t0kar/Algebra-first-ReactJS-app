@@ -1,26 +1,35 @@
-import logo from "./logo.svg";
-import "./App.css";
-import constant from "./random";
-import CurrentDate from "./components/CurrentDate";
-import UniqueId from "./components/UniqueId";
-import UserInfo from "./components/UserInfo";
+import logo from './logo.svg';
+import './App.css';
+import constant from './random';
+import CurrentDate from './components/CurrentDate';
+import UniqueId from './components/UniqueId';
+import UserInfo from './components/UserInfo';
+import CoinToss from './components/CoinToss';
+import LikeButton from './components/LikeButton';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className='App'>
+      <header className='App-header'>
         <h1>ReactJS</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>My first app</p>
+
+        <img src={logo} className='App-logo' alt='logo' />
+        <p>My first app!</p>
+        <LikeButton />
+        <p>
+          <CoinToss />
+        </p>
         <CurrentDate />
-        <a
-          className="App-link"
-          href="https://en.wikipedia.org/wiki/React_(JavaScript_library)"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Wiki about ReactJS
-        </a>
+        <p>
+          <a
+            className='App-link'
+            href='https://en.wikipedia.org/wiki/React_(JavaScript_library)'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Wiki about ReactJS
+          </a>
+        </p>
         <UserInfo />
         <UniqueId />
         <p>Used constant is {constant}.</p>
