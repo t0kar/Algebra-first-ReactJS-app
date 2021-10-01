@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function CoinTossComponent({ isHeads = this.props, tossCoin }) {
+export default function CoinTossComponent({ isHeads, tossCoin }) {
   return (
     <div>
       <span>
@@ -15,4 +15,5 @@ export default function CoinTossComponent({ isHeads = this.props, tossCoin }) {
 
 CoinTossComponent.propTypes = {
   isHeads: PropTypes.string,
+  tossCoin: PropTypes.func,
 };
