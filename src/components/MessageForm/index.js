@@ -63,7 +63,7 @@ export default function MessageForm({ onSendMessage }) {
           onChange={setIsImportant}
           value='isImportant'
           checked={state.isImportant}
-          inputProps={{
+          checkboxProps={{
             name: 'checkbox-isImportant',
             id: 'checkbox-isImportant',
           }}
@@ -72,7 +72,7 @@ export default function MessageForm({ onSendMessage }) {
       <div className='MessageForm__row'>
         <FormButton
           label='Send'
-          inputProps={{
+          buttonProps={{
             name: 'button-submit',
             id: 'button-submit-form',
           }}

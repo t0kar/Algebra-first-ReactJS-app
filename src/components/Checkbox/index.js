@@ -3,13 +3,13 @@ export default function Checkbox({
   onChange,
   value,
   checked,
-  inputProps,
+  checkboxProps,
 }) {
   return (
     <label>
       <input
         type='checkbox'
-        {...inputProps}
+        {...checkboxProps}
         onChange={onChange}
         value={value}
         checked={checked}

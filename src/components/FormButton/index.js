@@ -1,3 +1,7 @@
-export default function FormButton({ label, inputProps }) {
-  return <button type='submit'>{label}</button>;
+export default function FormButton({ label, buttonProps }) {
+  return (
+    <button type='submit' {...buttonProps}>
+      {label}
+    </button>
+  );
 }
