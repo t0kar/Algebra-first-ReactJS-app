@@ -1,7 +1,5 @@
-export default function FormButton({ label, buttonProps }) {
-  return (
-    <button type='submit' {...buttonProps}>
-      {label}
-    </button>
-  );
+import './FormButton.css';
+
+export default function FormButton(buttonProps) {
+  return <button {...buttonProps} className='FormButton' />;
 }

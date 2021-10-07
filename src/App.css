@@ -3,3 +3,7 @@
   max-width: 780px;
   margin: 32px auto;
 }
+
+a.active {
+  color: red;
+}

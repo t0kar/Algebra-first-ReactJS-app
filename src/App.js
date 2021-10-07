@@ -1,16 +1,13 @@
 import './App.css';
-import MessageForm from './components/MessageForm';
-import Message from './components/Message';
-import { useState } from 'react';
-import { getId } from './helpers';
-
-const numbers = [1, 2, 3, 4];
-const numberElements = numbers.map((number) => ({
-  key: getId(),
-  value: number,
-}));
+import MessageForm from './containers/MessageForm';
+import { useContext, useState } from 'react';
+import AppContext from './contexts/AppContext';
+import ChatContext from './contexts/ChatContext';
+import MessageList from './containers/MessageList';
+import AppRouter from './pages/AppRouter';
 
 function App() {
+  const appContext = useContext(AppContext);
   const [messageObjects, setMessageObjects] = useState([]);
 
   const handleSendMessage = (messageObject) => {
@@ -18,32 +15,35 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      {numberElements.map((numberElement) => (
-        <button key={numberElement.key}>{numberElement.value}</button>
-      ))}
-      <header className='App-header'>
-        <h1>My ReactJS app</h1>
-        {messageObjects.length === 0 && <p>No messages</p>}
-        {messageObjects.map((messageObject, index) => (
-          <Message
-            key={index}
-            isImportant={messageObject.isImportant}
-            message={messageObject.message}
-            title={messageObject.title}
-          />
-        ))}
-        <MessageForm onSendMessage={handleSendMessage} />
-        <a
-          className='App-link'
-          href='https://github.com/t0kar'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          My GitHub
-        </a>
-      </header>
-    </div>
+    <ChatContext.Provider value={messageObjects}>
+      <AppRouter />
+      <div className='App'>
+        <header className='App-header'>
+          <h1>My ReactJS app {appContext.language}</h1>
+          <MessageList />
+          <MessageForm onSendMessage={handleSendMessage} />
+          <a
+            className='App-link'
+            href='https://github.com/t0kar'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            My GitHub
+          </a>
+        </header>
+      </div>
+    </ChatContext.Provider>
   );
 }
-export default App;
+
+function withLove(Component) {
+  return function () {
+    return (
+      <div>
+        <Component />
+        <div>Made with ❤</div>
+      </div>
+    );
+  };
+}
+export default withLove(App);

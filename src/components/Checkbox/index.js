@@ -6,15 +6,17 @@ export default function Checkbox({
   checkboxProps,
 }) {
   return (
-    <label>
-      <input
-        type='checkbox'
-        {...checkboxProps}
-        onChange={onChange}
-        value={value}
-        checked={checked}
-      />
-      {label}
-    </label>
+    <div className='Checkbox'>
+      <label>
+        <input
+          {...checkboxProps}
+          type='checkbox'
+          onChange={onChange}
+          value={value}
+          checked={checked}
+        />
+        {label}
+      </label>
+    </div>
   );
 }

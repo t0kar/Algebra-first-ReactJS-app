@@ -3,7 +3,7 @@ import UniqueId from '../UniqueId';
 import CurrentDate from '../CurrentDate';
 import './Message.css';
 
-export default function Message({ isImportant, message, title }) {
+export default function Message({ isImportant, message, title, children }) {
   if (message === '' || message == null) {
     return null;
   }
@@ -27,3 +27,28 @@ export default function Message({ isImportant, message, title }) {
     </div>
   );
 }
+
+function withUserInfo(Component) {
+  return function (props) {
+    console.log('withUserInfo', props);
+    return <Component {...props} />;
+  };
+}
+
+function withUniqueId(Component) {
+  return function (props) {
+    console.log('withUniqueID', props);
+    return <Component {...props} />;
+  };
+}
+
+function withCurrentDate(Component) {
+  return function (props) {
+    console.log('withCurrentDate', props);
+    return <Component {...props} />;
+  };
+}
+
+export const MessageWithHoc = withUserInfo(
+  withUniqueId(withCurrentDate(Message))
+);

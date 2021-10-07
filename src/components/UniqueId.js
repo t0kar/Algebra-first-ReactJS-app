@@ -1,9 +1,11 @@
-import { getId } from "../helpers";
+import { useContext } from 'react';
+import AppContext from '../contexts/AppContext';
 
 export default function UniqueId() {
+  const appContext = useContext(AppContext);
   return (
     <p>
-      Your ID is <strong>{getId()}</strong>.
+      UID: <strong>{appContext.id}</strong>.
     </p>
   );
 }
